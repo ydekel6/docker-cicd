@@ -29,7 +29,7 @@ node {
    }                                     
    stage('docker build/push') {            
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-           dir('basics/'){
+     dir('basics/'){
        def app = docker.build("ydekel/docker-nodejs-demo:${commit_id}", '.').push()
        }
      }                                     
